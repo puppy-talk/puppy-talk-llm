@@ -5,6 +5,7 @@ from pydantic_settings import BaseSettings
 class EnvConfig(BaseSettings):
     # 변수명은 필드명과 같은 이름으로 해야 인식된다.
     secret_key: str = Field('SECRET_KEY')
+    db_url: str = Field('DB_URL')
 
     class Config:
         env_file = ".env"
