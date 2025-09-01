@@ -20,3 +20,7 @@ docker-compose up -d
 ```
 docker-compose up -d --build
 ```
+
+## 구조
+
+<img src=image.png />
