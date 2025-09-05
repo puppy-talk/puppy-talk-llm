@@ -15,5 +15,6 @@ class PetPersonalities(BaseModel):
 class PetRequest(BaseModel):
     name: str
     age: int
-    sex: str
+    gender: str
     personalities: PetPersonalities
+    tone: str

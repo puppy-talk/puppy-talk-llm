@@ -1,0 +1,3 @@
+[submodule "mysql_mcp_server"]
+	path = mysql_mcp_server
+	url = https://github.com/designcomputer/mysql_mcp_server.git
