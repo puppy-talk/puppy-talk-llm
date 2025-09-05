@@ -13,4 +13,4 @@ app = FastAPI(
 Base.metadata.create_all(bind=engine)
 
 app.include_router(llm_api, prefix = "/api/v1/pet-chat")
-app.include_router(pet_api, prefix = "/api/v1/pet")
+app.include_router(pet_api, prefix = "/api/v1/pets")
