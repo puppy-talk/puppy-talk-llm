@@ -4,8 +4,13 @@ from pydantic_settings import BaseSettings
 
 class EnvConfig(BaseSettings):
     # 변수명은 필드명과 같은 이름으로 해야 인식된다.
-    secret_key: str = Field('SECRET_KEY')
-    db_url: str = Field('DB_URL')
+    secret_key: str = Field(alias='SECRET_KEY')
+    db_url: str = Field(alias='DB_URL')
+    mysql_host: str = Field(alias='MYSQL_HOST')
+    mysql_port: int = Field(alias='MYSQL_PORT')
+    mysql_user: str = Field(alias='MYSQL_USER')
+    mysql_password: str = Field(alias='MYSQL_PASSWORD')
+    mysql_database: str = Field(alias='MYSQL_DATABASE')
 
     class Config:
         env_file = ".env"
