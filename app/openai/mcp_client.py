@@ -1,27 +1,30 @@
 import asyncio
 import os
+
 from contextlib import asynccontextmanager
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
-from dotenv import load_dotenv
 
-load_dotenv()
-
+from app.core.config import env_config
 
 class MySQLMCPClient:
     def __init__(self):
         self.session = None
+        # MCP 서버 실행 시 필요한 실행 정보를 담는다.
+        # 어떤 명령으로, 어떤 인자를 붙여 어떤 환경에서 실행할지?
         self.server_params = StdioServerParameters(
-            command="python",
+            command="python",   # 실행할 프로그램
+            # 실행할 스크립트/파일 경로
             args=[
                 os.path.join(os.path.dirname(__file__), "mysql_mcp_server/src/mysql_mcp_server/server.py")
             ],
+            # 환경변수
             env={
-                "MYSQL_HOST": os.getenv("MYSQL_HOST", "localhost"),
-                "MYSQL_PORT": os.getenv("MYSQL_PORT", "3306"),
-                "MYSQL_USER": os.getenv("MYSQL_USER"),
-                "MYSQL_PASSWORD": os.getenv("MYSQL_PASSWORD"),
-                "MYSQL_DATABASE": os.getenv("MYSQL_DATABASE"),
+                "MYSQL_HOST": env_config.mysql_host,
+                "MYSQL_PORT": env_config.mysql_port,
+                "MYSQL_USER": env_config.mysql_user,
+                "MYSQL_PASSWORD": env_config.mysql_password,
+                "MYSQL_DATABASE": env_config.mysql_database,
             }
         )
 

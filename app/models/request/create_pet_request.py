@@ -12,7 +12,7 @@ class PetPersonalities(BaseModel):
     communication: str
     routine: str
 
-class PetRequest(BaseModel):
+class CreatePetRequest(BaseModel):
     name: str
     age: int
     gender: str

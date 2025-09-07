@@ -1,7 +1,7 @@
 version: '2.4'
 
 services:
-  backend:
+  llm:
     build: .
     ports:
       - "8000:8000"
